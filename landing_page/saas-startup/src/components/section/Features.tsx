@@ -96,9 +96,12 @@ export default function Features() {
           <p className="text-slate-600 dark:text-slate-300 mb-6 text-lg">
             Join thousands of businesses already growing with our platform
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
             Get Started Free
-          </button>
+          </a>
         </div>
       </div>
     </section>

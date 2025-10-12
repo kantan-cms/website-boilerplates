@@ -118,7 +118,8 @@ export default function Pricing() {
               </div>
 
               {/* CTA button */}
-              <button
+              <a
+                href="#contact"
                 className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 mb-6 flex items-center justify-center gap-2 ${
                   plan.highlighted
                     ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
@@ -127,7 +128,7 @@ export default function Pricing() {
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
 
               {/* Features */}
               <div className="space-y-3">
@@ -186,9 +187,12 @@ export default function Pricing() {
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-6">
             Our team is here to help you choose the right plan for your business.
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            Talk to Sales
-          </button>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
     </section>

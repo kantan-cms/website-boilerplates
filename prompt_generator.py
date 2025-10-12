@@ -1,3 +1,23 @@
+"""
+Website Prompt Generator for Kantan CMS Boilerplates
+
+This script generates detailed prompts for creating websites with specific requirements.
+It includes 5 example use cases:
+
+1. Tech Startup Landing Page - Single page with conversion focus
+2. Photography Portfolio - Multi-page visual showcase with neumorphism
+3. Food Blog - Content-focused blog with CMS integration
+4. Family Restaurant - Traditional multi-page with menu focus
+5. Corporate Consultancy - Professional business website with authority positioning
+
+The corporate example (Example 5) demonstrates:
+- Modern business template with flat material design
+- Grid-based layout for structured professional content
+- Multi-page architecture for comprehensive corporate presence
+- Focus on establishing authority and lead generation
+- Sections optimized for enterprise decision makers
+"""
+
 from dataclasses import dataclass
 from typing import Dict, Literal
 
@@ -448,3 +468,25 @@ if __name__ == "__main__":
     prompt4 = generator.generate_prompt(requirements4, project_name="restaurant-site")
     print("=== EXAMPLE 4: FAMILY RESTAURANT WEBSITE ===")
     print(prompt4)
+    print("\n" + "=" * 80 + "\n")
+
+    # Example 5: Corporate Business Consultancy
+    requirements5 = WebsiteRequirements(
+        business_type="business consulting firm",
+        target_audience="enterprise executives and decision makers",
+        primary_goal="establish authority and generate qualified leads",
+        content_focus="expertise, case studies, and thought leadership",
+        brand_personality="professional, trustworthy, innovative",
+        type_website="website",
+    )
+
+    prompt5 = generator.generate_prompt(
+        requirements5,
+        template_category="business_corporate",
+        template_style="modern_business",
+        visual_style="flat_material",
+        layout_approach="grid_based",
+        project_name="corporate-consultancy",
+    )
+    print("=== EXAMPLE 5: CORPORATE CONSULTANCY WEBSITE ===")
+    print(prompt5)

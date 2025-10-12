@@ -38,14 +38,20 @@ export default function Hero() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <button className="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+          <a
+            href="#contact"
+            className="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+          >
             Start Free Trial
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
 
-          <button className="group w-full sm:w-auto px-8 py-4 glass-strong hover:glass text-slate-700 dark:text-slate-200 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
-            Watch Demo
-          </button>
+          <a
+            href="#contact"
+            className="group w-full sm:w-auto px-8 py-4 glass-strong hover:glass text-slate-700 dark:text-slate-200 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 text-center"
+          >
+            Get in Touch
+          </a>
         </div>
 
         {/* Social proof */}
