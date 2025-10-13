@@ -2,20 +2,20 @@
 Website Prompt Generator for Kantan CMS Boilerplates
 
 This script generates detailed prompts for creating websites with specific requirements.
-It includes 5 example use cases:
+It includes 7 example use cases:
 
 1. Tech Startup Landing Page - Single page with conversion focus
 2. Photography Portfolio - Multi-page visual showcase with neumorphism
 3. Food Blog - Content-focused blog with CMS integration
 4. Family Restaurant - Traditional multi-page with menu focus
 5. Corporate Consultancy - Professional business website with authority positioning
+6. Consulting Service Landing Page - Conversion-focused landing page for professional services
+7. Tech Blog - Multi-page blog for technology news and tutorials
 
-The corporate example (Example 5) demonstrates:
-- Modern business template with flat material design
-- Grid-based layout for structured professional content
-- Multi-page architecture for comprehensive corporate presence
-- Focus on establishing authority and lead generation
-- Sections optimized for enterprise decision makers
+Examples 6 & 7 demonstrate:
+- Landing page architecture optimized for lead generation
+- Blog architecture with CMS integration and content management
+- Different use cases for service businesses and content publishers
 """
 
 from dataclasses import dataclass
@@ -29,7 +29,7 @@ class WebsiteRequirements:
     primary_goal: str
     content_focus: str
     brand_personality: str
-    type_website: Literal['landing_page', 'website', 'blog'] = 'website'
+    type_website: Literal["landing_page", "website", "blog"] = "website"
 
 
 class WebsitePromptGenerator:
@@ -123,7 +123,7 @@ class WebsitePromptGenerator:
         layout_info = self.layout_approaches[layout_approach]
 
         # Generate base prompt
-        prompt = f"""Create a website for a {requirements.business_type} targeting {requirements.target_audience}. at `{project_name or 'project-name'}`
+        prompt = f"""Create a website for a {requirements.business_type} targeting {requirements.target_audience}. at `{project_name or "project-name"}`
 
 BUSINESS REQUIREMENTS:
 - Primary Goal: {requirements.primary_goal}
@@ -155,7 +155,7 @@ Modify the selected boilerplate to match these specifications while maintaining 
 
         # Add website type-specific instructions
         website_type_instructions = self._get_website_type_instructions(
-            requirements.type_website, project_name or 'project-name'
+            requirements.type_website, project_name or "project-name"
         )
         if website_type_instructions:
             prompt += f"\n\n{website_type_instructions}"
@@ -223,7 +223,9 @@ Modify the selected boilerplate to match these specifications while maintaining 
         else:
             return "grid_based"
 
-    def _get_website_type_instructions(self, type_website: str, project_name: str) -> str:
+    def _get_website_type_instructions(
+        self, type_website: str, project_name: str
+    ) -> str:
         """Generate website type-specific implementation instructions"""
 
         cms_functions_guide = """
@@ -250,7 +252,7 @@ import { postFormData } from '@/libs/postFormData';
 const result = await postFormData({ name, email, message });
 ```"""
 
-        if type_website == 'landing_page':
+        if type_website == "landing_page":
             return f"""
 ## WEBSITE TYPE: LANDING PAGE
 
@@ -281,7 +283,7 @@ Create a single-page website with all content on one page using smooth scrolling
 - Create a sticky navigation that highlights the current section
 - Ensure mobile responsiveness for single-page scroll experience"""
 
-        elif type_website == 'website':
+        elif type_website == "website":
             return f"""
 ## WEBSITE TYPE: MULTI-PAGE WEBSITE
 
@@ -326,7 +328,7 @@ Create reusable sections in `{project_name}/src/components/sections/`:
 - Use Next.js dynamic routes for CMS-driven pages (e.g., news/[slug])
 - Implement proper metadata for SEO on each page"""
 
-        elif type_website == 'blog':
+        elif type_website == "blog":
             return f"""
 ## WEBSITE TYPE: BLOG / CONTENT PUBLICATION
 
@@ -490,3 +492,47 @@ if __name__ == "__main__":
     )
     print("=== EXAMPLE 5: CORPORATE CONSULTANCY WEBSITE ===")
     print(prompt5)
+    print("\n" + "=" * 80 + "\n")
+
+    # Example 6: Consulting Service Landing Page
+    requirements6 = WebsiteRequirements(
+        business_type="business consulting service",
+        target_audience="mid-market business owners and executives",
+        primary_goal="generate qualified leads and consultation bookings",
+        content_focus="service benefits, social proof, and clear value proposition",
+        brand_personality="expert, results-driven, accessible",
+        type_website="landing_page",
+    )
+
+    prompt6 = generator.generate_prompt(
+        requirements6,
+        template_category="business_corporate",
+        template_style="clean_corporate",
+        visual_style="neumorphism",
+        layout_approach="single_page_scrolling",
+        project_name="consulting-landing",
+    )
+    print("=== EXAMPLE 6: CONSULTING SERVICE LANDING PAGE ===")
+    print(prompt6)
+    print("\n" + "=" * 80 + "\n")
+
+    # Example 7: Tech Blog
+    requirements7 = WebsiteRequirements(
+        business_type="technology blog",
+        target_audience="developers and tech enthusiasts",
+        primary_goal="grow readership and establish thought leadership",
+        content_focus="elegant, classic",
+        brand_personality="knowledgeable, helpful, community-focused",
+        type_website="blog",
+    )
+
+    prompt7 = generator.generate_prompt(
+        requirements7,
+        template_category="content_blog",
+        template_style="magazine_style",
+        visual_style="flat_material",
+        layout_approach="grid_based",
+        project_name="tech-blog",
+    )
+    print("=== EXAMPLE 7: TECH BLOG ===")
+    print(prompt7)
