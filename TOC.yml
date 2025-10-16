@@ -1,0 +1,47 @@
+landing_pages:
+  - name: consulting_service
+    directory: landing_page/consulting_service/website-base-nextjs/
+    target_audience: Mid-market business executives
+    description: Conversion-focused consulting landing page with animated blobs, dashboard preview, 3 pricing tiers, and CMS contact form
+
+  - name: consulting_service_2
+    directory: landing_page/consulting_service_2/
+    target_audience: Mid-market business executives
+    description: Expert consulting page with rotating gradient background, quarterly growth metrics, gradient-bordered cards
+
+  - name: consulting_service_3
+    directory: landing_page/consulting_service_3/
+    target_audience: Mid-market business executives
+    description: Conservative professional design with raised/inset tactile elements, neumorphic form inputs, corporate trust aesthetic
+
+  - name: saas-startup
+    directory: landing_page/saas-startup/
+    target_audience: Small business owners
+    description: SaaS product landing page for "BizGrow" platform with free trial promotion, feature grid, pricing tables
+
+websites:
+  - name: consulting_firm
+    directory: websites/consulting_firm/
+    target_audience: Enterprise executives
+    pages: 7
+    page_list:
+      - Home
+      - About
+      - Services
+      - Work
+      - News
+      - Contact
+      - Blog
+    description: Corporate consultancy with 16 reusable components, case studies, team profiles, traditional navigation
+
+  - name: photographer_portfolio
+    directory: websites/photographer_portfolio/
+    target_audience: Creative clients
+    pages: 5
+    page_list:
+      - Home
+      - About
+      - Portfolio
+      - Services
+      - Contact
+    description: Visual storytelling portfolio with gallery integration, service packages (Portrait, Event, Commercial, Wedding)
